@@ -13,8 +13,8 @@
         state: present
    - name: Start the container 
      docker_container:
-        name: hariapp
-        image: 
+        name: webapp
+        image: "vinaymg006/webapp:${BUILD_NUMBER} "
         state: started 
         published ports:
         - 0.0.0.0:8080:8080
