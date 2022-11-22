@@ -3,13 +3,7 @@
   become: true
 
   tasks:
-    - name: install python pip
-      yum: python-pip
-      state: present
-    - name: install docker
-      pip:
-        name: docker-py
-        state: present
+   
     - name: log into docker hub registry
       docker_login:
         username: "vinaymg006"
