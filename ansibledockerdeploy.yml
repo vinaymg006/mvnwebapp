@@ -1,13 +1,18 @@
 ---
-  -hosts:webservers
-   become:true
-   tasks:
-     -name:start container
+- hosts: all
+  become: true
+
+  tasks:
+    - name: log into docker hub registry
+      docker_login:
+        username: "vinaymg006"
+        password: "Vinay64$."
+
+    - name: ensure a container is running
       docker_container:
-        name:mvnwebapp
-        image:"vinaymg006/webapp:${BUILD_NUMBER}"
-        state:started
-        published_ports:
-          - 0.0.0.0:8080:8080
-
-
+        name: my_container
+        state: started
+        image: "vinaymg006/webapp:${BUILD_NUMBER}"
+        pull: true
+        ports:
+          - "8080:8080"
