@@ -22,6 +22,5 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - run: mkdir deployment && cp target/*.war deployment
-    - run: pwd && ls && ls target/* && ls deployment/*
-    - run: curl --upload-file deployment/mvnwebapp.war "http://${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASS }}@fa60-2406-7400-56-4538-ac6e-afa1-5b40-89c1.ngrok-free.app/manager/text/deploy?path=/githubaction&update=true"
+    - name : build docker image
+      run: docker build -t mavenimage .
