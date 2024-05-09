@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-deployment-name
+  labels:
+    app: your-app-label
+spec:
+  replicas: 3 # Number of desired replicas
+  selector:
+    matchLabels:
+      app: your-app-label
+  template:
+    metadata:
+      labels:
+        app: your-app-label
+    spec:
+      containers:
+      - name: yname
+        image: vinaymg006/mavengithubactionns:0.1
+        ports:
+        - containerPort: 80 # Port your application listens on
+        # Add additional container settings as needed, such as environment variables or volume mounts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: your-service-name
+spec:
+  selector:
+    app: your-app-label
+  ports:
+    - protocol: TCP
+      port: 80 # Port your service will listen on
+      targetPort: 80
+      NodePort: 31001 # Port your application listens on
+  type: NodePort # Type of service (LoadBalancer, NodePort, ClusterIP, etc.)
