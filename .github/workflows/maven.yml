@@ -35,4 +35,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name : deployment
-      run : kubectl apply -f deployment.yaml --kubeconfig=kubeconfig
+      run : kubectl apply -f deployment.yaml --kubeconfig=./kubeconfig
