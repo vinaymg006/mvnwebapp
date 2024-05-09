@@ -23,4 +23,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name : build docker image
-      run: docker build -t mavenimage .
+      run: docker build -t vinaymg006/mavengithubactionns:0.1 .
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: vinaymg006
+        password: Vinaymg64$
+    - name: Push Docker image to Docker Hub
+      run: docker push vinaymg006/mavengithubactionns:0.1
