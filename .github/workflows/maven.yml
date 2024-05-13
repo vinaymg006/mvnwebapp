@@ -30,7 +30,7 @@ jobs:
         username: vinaymg006
         password: Vinaymg64$
     - name: Push Docker image to Docker Hub
-      run: docker push vinaymg006/mavengithubactionns:0.1
+      run: docker push vinaymg006/mavengithubactionns:0.2
   
 
     - name : deployment
